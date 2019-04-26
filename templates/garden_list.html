@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+<html>
+    {% block head %}
+        {{ super() }}
+        <script>
+            var gardens = {{ gardens|tojson }} 
+        </script>
+
+        <style type="text/css">
+        </style>
+    {% endblock %}
+    <body>
+        {% block nav %}
+            {{ super() }}
+        {% endblock %}
+
+        {% block content %}
+
+        {% endblock %}
+    </body>
+</html>

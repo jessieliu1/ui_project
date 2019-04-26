@@ -1,0 +1,114 @@
+#herbs {
+    margin-top: 10px;
+    overflow: visible;
+    width: 100%;
+    height: 400px;
+}
+
+#pot-confirm {
+    visibility : hidden;
+}
+
+#pot-confirm.active {
+    visibility : visible;
+}
+
+#print-button {
+    padding-top: 10px;
+}
+
+#instructions {
+    padding-top: 20px;
+}
+
+.selectable .ui-selected {
+    background-color: pink;
+}
+
+.selectable .ui-selecting {
+    background-color: lightgrey;
+}
+
+.selectable-disabled.ui-selecting {
+    background-color: Grey;
+}
+
+.selectable-disabled {
+    pointer-events : none;
+}
+
+.pot-herb {
+    height: 100%;
+    width: 100%;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.img-thumbnail {
+    height: 70px;
+    width: 70px;
+}
+
+.pot-background {
+    border-radius: 50%;
+    border-width: 8px !important;
+    border-style: solid !important;
+    border-color: #e2725b !important;
+}
+
+.r-pot-background {
+    background-size: cover;
+}
+
+.planter {
+    width: 530px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.planter-spot {
+    height: 100px;
+    width: 70px;
+    border-color: lightgrey;
+    border-width: 2px;
+}
+
+.r-pot-background.left {
+    border-radius: 15px 0px 0px 15px;
+    border-style: solid dotted solid solid;
+    border-color: #e2725b;
+    border-width: 8px 2px 8px 8px;
+}
+
+.r-pot-background.center {
+    border-style: solid dotted solid none;
+    border-color: #e2725b;
+    border-width: 8px 2px 8px 0px;
+}
+
+.r-pot-background.right {
+    border-radius: 0px 15px 15px 0px;
+    border-style: solid solid solid none;
+    border-color: #e2725b;
+    border-width: 8px 8px 8px 0px;
+}
+
+.left {
+    border-style: dotted dotted dotted dotted;
+}
+
+.center {
+    border-style: dotted dotted dotted none;
+}
+
+.right {
+    border-style: dotted dotted dotted none;
+}

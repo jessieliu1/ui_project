@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+<html>
+    {% block head %}
+        {{ super() }}
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename = 'planter.css' )}}">
+        <script type="text/javascript" src="{{ url_for('static', filename = 'garden.js') }}"></script>
+
+        <script>
+            var garden = {{ garden|tojson }} 
+            var herbs = {{ herbs|tojson }} 
+        </script>
+
+        <style type="text/css">
+            @media print {
+                .print-button {
+                    display: none;
+                }
+            }
+        </style>
+    {% endblock %}
+    <body>
+        {% block nav %}
+            {{ super() }}
+        {% endblock %}
+
+        {% block content %}
+            <div class="container-fluid">
+                <div class="row planter">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <span class="col-md-3" id="0name"></span>
+                            <span class="col-md-3" id="1name"></span>
+                            <span class="col-md-3" id="2name"></span>
+                            <span class="col-md-3" id="3name"></span>
+                        </div>
+                        <div class="row">
+                            <span class="col-md-3 planter-spot left" id="0"></span>
+                            <span class="col-md-3 planter-spot center" id="1"></span>
+                            <span class="col-md-3 planter-spot center" id="2"></span>
+                            <span class="col-md-3 planter-spot right" id="3"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-light print-button">Print</button>
+                </div>
+            </div>
+        {% endblock %}
+    </body>
+</html>

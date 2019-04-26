@@ -1,0 +1,170 @@
+{% extends "layout.html" %}
+<html>
+    {% block head %}
+        {{ super() }}
+        <script type="text/javascript" src="{{ url_for('static', filename = 'custom.js') }}"></script>
+
+        <script>
+            var herbs = {{herbs|tojson}} 
+            var size = {{size|tojson}}
+        </script>
+
+        <style type="text/css">
+            #herbs {
+                margin-top: 10px;
+                overflow: visible;
+                width: 100%;
+                height: 400px;
+            }
+
+            #pot-confirm {
+                visibility : hidden;
+            }
+
+            #pot-confirm.active {
+                visibility : visible;
+            }
+
+            #print-button {
+                padding-top: 10px;
+            }
+
+            #instructions {
+                padding-top: 20px;
+            }
+
+            .selectable .ui-selected {
+                background-color: pink;
+            }
+
+            .selectable .ui-selecting {
+                background-color: lightgrey;
+            }
+
+            .selectable-disabled.ui-selecting {
+                background-color: Grey;
+            }
+
+            .selectable-disabled {
+                pointer-events : none;
+            }
+
+            .pot-herb {
+                height: 100%;
+                width: 100%;
+            }
+
+            .pink {
+                background-color: pink;
+            }
+
+            .yellow {
+                background-color: yellow;
+            }
+
+            .img-thumbnail {
+                height: 70px;
+                width: 70px;
+            }
+
+            .pot-background {
+                background-image: url('/static/imgs/soil.png');
+                background-size: cover;
+            }
+
+            .r-pot-background {
+                background-image: url('/static/imgs/dirt.jpg');
+                background-size: cover;
+            }
+
+            .planter {
+                width: 100%;
+                padding-right: 40px;
+                padding-left: 40px;
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            .planter-spot {
+                height: 100px;
+                width: 70px;
+                border-color: lightgrey;
+                border-width: 2px;
+            }
+
+
+
+            .r-pot-background.left {
+                border-radius: 15px 0px 0px 15px;
+                border-style: solid dotted solid solid;
+                border-color: #e2725b;
+                border-width: 8px 2px 8px 8px;
+            }
+
+            .r-pot-background.center {
+                border-style: solid dotted solid none;
+                border-color: #e2725b;
+                border-width: 8px 2px 8px 0px;
+            }
+
+            .r-pot-background.right {
+                border-radius: 0px 15px 15px 0px;
+                border-style: solid solid solid none;
+                border-color: #e2725b;
+                border-width: 8px 8px 8px 0px;
+            }
+
+            .left {
+                border-style: dotted dotted dotted dotted;
+            }
+
+            .center {
+                border-style: dotted dotted dotted none;
+            }
+
+            .right {
+                border-style: dotted dotted dotted none;
+            }
+        </style>
+    {% endblock %}
+
+    <body>
+        {% block nav %}
+            {{ super() }}
+        {% endblock %}
+
+        {% block content %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div id="herbs"> 
+                                <div id="herb-table">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row planter selectable">
+                            <span class="col-md-3 planter-spot left" data-id="0"></span>
+                            <span class="col-md-3 planter-spot center" data-id="1"></span>
+                            <span class="col-md-3 planter-spot center" data-id="2"></span>
+                            <span class="col-md-3 planter-spot right" data-id="3"></span>
+                        </div>
+                        <div id="pot-confirm">
+                            <p><span style="float:left; margin:12px 12px 20px 0;"></span>Would you like to place a pot in this spot?</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row" id="instructions">
+                            Drag to select cells on the planter where you want to place a pot. Then, drag herbs from the left table to the cells to place herbs.
+                        </div>
+                        <div class="row" id="print-button">
+                            <button type="button" class="btn btn-light print-button"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </body>
+</html>
